@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гладкая Обводка PNG v3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Гладкая Обводка Контуров PNG</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="imageLoader">Выберите PNG файл:</label>
+            <input type="file" id="imageLoader" name="imageLoader" accept=".png">
+        </div>
+
+        <div class="control-group">
+            <label for="colorPicker">Цвет обводки:</label>
+            <input type="color" id="colorPicker" name="colorPicker" value="#007bff">
+        </div>
+
+        <div class="control-group thickness-group">
+            <label for="thicknessSlider">Относительная толщина (<span id="thicknessValue">50.0</span>):</label>
+            <div class="slider-input-container">
+                <input type="range" id="thicknessSlider" name="thicknessSlider"
+                       min="1" max="1000" value="100" step="0.1">
+                <input type="number" id="thicknessInput" name="thicknessInput"
+                       min="1" max="1000000" value="100" step="0.1" placeholder="1-1M">
+            </div>
+            <small class="warning-text" id="thicknessWarning" style="color: #dc3545; display: none;">Очень большие значения могут вызвать проблемы!</small>
+        </div>
+
+        <div class="control-group smoothing-group">
+             <label for="smoothingSlider">Сглаживание (<span id="smoothingValue">96.1</span>):</label>
+             <div class="slider-input-container">
+                 <input type="range" id="smoothingSlider" name="smoothingSlider"
+                        min="0" max="100" value="97.0" step="0.1">
+                 </div>
+             <small>Больше значение = мягче/толще обводка</small>
+         </div>
+
+         <div class="control-group">
+             <button id="downloadButton" disabled>Скачать результат</button>
+         </div>
+    </div>
+
+    <div class="canvas-container">
+         <div id="processingIndicator" class="processing-indicator" style="display: none;">Обработка...</div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <a id="downloadLink" style="display: none;"></a>
+    <script src="script.js"></script>
+</body>
+</html>
